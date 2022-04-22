@@ -133,29 +133,39 @@ class App extends React.Component {
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 root.render(<App />);
 */
+import DisplaySeason from "./DisplaySeason.js";
 
 class App extends React.Component {
-  state = {
-    latitude: null,
-    errorMessage: "",
-  };
+  state = { lat: null, errorMessage: "" };
 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
-      (geo) => {
-        this.setState({ latitude: geo.coords.latitude });
-      },
-      (error) => this.setState({ errorMessage: error })
+      (position) => this.setState({ lat: position.coords.latitude }),
+      (err) => this.setState({ errorMessage: err.message })
     );
   }
-  render() {
-    if (this.state.latitude) {
-      return <div>Latitude:{this.state.latitude}</div>;
-    } else if (this.state.errorMessage) {
-      return <div>Error:{this.state.errorMessage}</div>;
-    } else {
-      return <div>Loading.......</div>;
+
+  getLocation() {
+    if (this.state.lat) {
+      return (
+        <div>
+          <div>Latitude: {this.state.lat}</div>
+        </div>
+      );
     }
+    if (this.state.errorMessage) {
+      return (
+        <div>
+          <div>Error:{this.state.errorMessage}</div>
+        </div>
+      );
+    }
+    return <div>Loading....</div>;
+  }
+  render() {
+    return (
+      <DisplaySeason lat={this.state.lat} error={this.state.errorMessage} />
+    );
   }
 }
 const root = ReactDOM.createRoot(document.querySelector("#root"));

@@ -1,0 +1,35 @@
+.wrapper {
+  width: 80%;
+  margin: 3rem auto;
+  position: relative;
+  text-align: center;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sun {
+  color: rgb(255, 187, 0);
+  font-size: 2rem;
+}
+.snowflake {
+  color: aqua;
+}
+
+.second-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.first-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.winter-box {
+  background-image: url("https://previews.123rf.com/images/cobalt/cobalt1908/cobalt190800043/129944248-snowflakes-winter-background-christmas-snowflakes-vector-pattern-.jpg?fj=1");
+}
+.summer-box {
+  background-size: cover;
+  background-image: url("https://img.freepik.com/free-vector/flat-sun-icon-sun-pictogram-trendy-vector-summer-symbol-website-design-web-button-mobile-app-vector-doodle-suns_185004-397.jpg?w=740");
+}
